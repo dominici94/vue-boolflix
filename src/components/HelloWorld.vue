@@ -1,9 +1,13 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <button @click="ricerca">clicca qui</button>
+    <button @click="ricerca">clicca per cercare</button>
     <input type="text" placeholder="scrivi qua cosa cercare" v-model="movie">
-
+    <div class="film-card" v-for="(movie,index) in searchedMovies" :key="index">
+      <h1>TITOLO {{index+1}}: {{movie.title}}</h1>
+      <h2>TITOLO ORIGINALE: {{movie.original_title}}</h2>
+      <h3>LINGUA: {{movie.original_language}}</h3>
+      <h4>VOTO: {{movie.vote_average}}</h4>
+    </div>
   </div>
 </template>
 
@@ -12,12 +16,10 @@ import axios from 'axios';
 
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
-  },
   data(){
     return{
-      movie: ''
+      movie: '',
+      searchedMovies: []
     }
   },
   methods: {
@@ -29,8 +31,10 @@ export default {
           language: 'it-IT'
         }
       })
-      .then(function (response) {
+      .then((response) =>{
         console.log(response.data.results);
+        this.searchedMovies = response.data.results;
+        console.log(this.searchedMovies);
       })
       .catch(function (error) {
         console.log(error);
@@ -42,18 +46,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>
