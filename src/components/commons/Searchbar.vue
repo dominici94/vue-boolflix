@@ -19,7 +19,8 @@ export default {
     name : 'Searchbar',
     data(){
         return{
-            dataShared
+            dataShared,
+            flags: []
         }
     },
     methods: {
