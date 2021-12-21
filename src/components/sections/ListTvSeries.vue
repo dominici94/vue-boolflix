@@ -1,17 +1,17 @@
 <template>
   <section class="movie-list">
-      <MovieCard v-for="(movie,index) in dataShared.searchedMovies" :key="index" :info="movie"/>
+      <TvSeriesCard v-for="(tvSeries,index) in dataShared.searchedTvSeries" :key="index" :info="tvSeries"/>
   </section>
 </template>
 
 <script>
-import MovieCard from '../commons/MovieCard.vue';
+import TvSeriesCard from '../commons/TvSeriesCard.vue';
 import dataShared from '../../share/dataShared';
 
 export default {
-    name: 'ListMovies',
+    name: 'ListTvSeries',
     components: {
-        MovieCard
+        TvSeriesCard
     },
     data(){
         return{

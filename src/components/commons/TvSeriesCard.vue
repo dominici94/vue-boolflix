@@ -1,8 +1,8 @@
 <template>
     <!-- <div class="movie-card" v-for="(movie,index) in dataShared.searchedMovies" :key="index"> -->
-    <div class="movie-card">
-        <h1>TITOLO: {{info.title}}</h1>
-        <h2>TITOLO ORIGINALE: {{info.original_title}}</h2>
+    <div class="tv-series-card">
+        <h1>TITOLO: {{info.name}}</h1>
+        <h2>TITOLO ORIGINALE: {{info.original_name}}</h2>
         <!-- <h3>LINGUA: {{info.original_language}}</h3> -->
         <!-- nella lingua inserire la bandiera: se la lingua dell'oggetto è ingl metto la bandiera inglese -->
         <h3>LINGUA: </h3>
@@ -28,18 +28,6 @@ export default {
     props: {
         info: Object
     },
-    computed: {
-    //     flagTransform(){
-    //         return dataShared.searchedMovies.map();
-    //     }
-    //      discsFiltered(){
-    //   return this.discs.filter( (elm) => {
-    //     // return elm.genre == this.selectGen;
-    //     return elm.genre.includes(this.selectGen);
-
-    //   });
-    // }
-    }
 
 }
 </script>

@@ -1,7 +1,13 @@
 <template>
     <div class="searchbar">
-        <button @click="ricerca">clicca per cercare</button>
+      <form @submit.prevent="ricerca">
+        <button>clicca per cercare film</button>
         <input type="text" placeholder="scrivi qua cosa cercare" v-model="dataShared.movie">
+      </form>
+      <form @submit.prevent="ricercaSerie">
+        <button>clicca per cercare serie TV</button>
+        <input type="text" placeholder="scrivi qua cosa cercare" v-model="dataShared.tvSeries">
+      </form>
     </div>
 </template>
 
@@ -21,16 +27,29 @@ export default {
       axios.get('https://api.themoviedb.org/3/search/movie', {
         params: {
           api_key: '9ec928ff51bdea15194ed01659cadfec',
-          query: this.dataShared.movie,
+          query: dataShared.movie,
           language: 'it-IT'
         }
       })
-      .then((response) =>{
-        console.log(response.data.results);
-        this.dataShared.searchedMovies = response.data.results;
-        console.log(this.dataShared.searchedMovies);
+      .then((response) => {
+        dataShared.searchedMovies = response.data.results;
       })
-      .catch(function (error) {
+      .catch((error) => {
+        console.log(error);
+      });
+    },
+    ricercaSerie(){
+      axios.get('https://api.themoviedb.org/3/search/tv', {
+        params: {
+          api_key: '9ec928ff51bdea15194ed01659cadfec',
+          query: dataShared.tvSeries,
+          language: 'it-IT'
+        }
+      })
+      .then((response) => {
+        dataShared.searchedTvSeries = response.data.results;
+      })
+      .catch((error) => {
         console.log(error);
       });
     }

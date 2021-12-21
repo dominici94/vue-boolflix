@@ -1,6 +1,10 @@
 import Vue from 'vue';
 
 export default Vue.observable({
+    // movie = film v-model
     movie: '',
-    searchedMovies: []
+    // film cercati
+    searchedMovies: [],
+    tvSeries: '',
+    searchedTvSeries: []
 });
