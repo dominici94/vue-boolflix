@@ -1,14 +1,16 @@
 <template>
     <div class="card">
         <img :src="'https://image.tmdb.org/t/p/w342'+ info.poster_path" :alt="info.title ? info.title : info.name">
-        <h1>TITOLO: {{info.title ? info.title : info.name}}</h1>
-        <h2>TITOLO ORIGINALE: {{info.original_title ? info.original_title : info.original_name}}</h2>
-        <h3>LINGUA: 
-            <img v-if="flags.includes(info.original_language)" :src="require(`../../assets/img/${info.original_language}.png`)" :alt="info.original_language" height="30">
-            <img v-else src="../../assets/img/world.svg" :alt="info.original_language" height="30">
-        </h3>
-        <h4>VOTO: {{info.vote_average}}</h4>
-        <h4>voto computed: {{vote}}</h4>
+        <div id="inhover">
+            <h2>TITOLO: {{info.title ? info.title : info.name}}</h2>
+            <h2>TITOLO ORIGINALE: {{info.original_title ? info.original_title : info.original_name}}</h2>
+            <h2>LINGUA: 
+                <img v-if="flags.includes(info.original_language)" :src="require(`../../assets/img/${info.original_language}.png`)" :alt="info.original_language" height="30">
+                <img v-else src="../../assets/img/world.svg" :alt="info.original_language" height="30">
+            </h2>
+            <h2>VOTO: {{info.vote_average}}/10</h2>
+            <h2>voto: {{vote}}/5</h2>
+        </div>
     </div>
 </template>
 
@@ -26,11 +28,22 @@ export default {
                 'fr',
                 'de',
                 'es'
-            ]
+            ],
         }
     },
     props: {
         info: Object
+    },
+    methods:{
+        getStar(vote){
+            for(let i = 0; i < 5; i++){
+                if(i < vote){
+                    this.star += `<i class="fas fa-star"></i>`;
+                }else{
+                    this.star += `<i class="far fa-star"></i>`;
+                }
+            }
+        }
     },
     computed: {
         vote(){
@@ -39,7 +52,39 @@ export default {
     }
 }
 </script>
+    
+<style lang="scss" scoped>
 
-<style>
+    .card{
+        position: relative;
+
+        img{
+        width: 100%;
+        height: 400px;
+        }
+
+        #inhover{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px 10px;
+            background-color: rgba($color: #000000, $alpha: 0.7);
+            color: white;
+            img{
+                height: 50%;
+                width: 50%;
+            }
+            
+        }
+    }
+    
+    .card:hover #inhover{
+        display: block;
+        
+    }
+    
 
 </style>
