@@ -1,8 +1,9 @@
 <template>
-  <section class="movie-list">
+  <section class="tv-series-list">
+      <h2>SERIE TV</h2>
       <ol>
-          <li v-for="(tvSeries,index) in dataShared.searchedTvSeries" :key="index">
-            <Card :info="tvSeries"/>
+          <li v-for="(movie, index) in dataShared.searchedTvSeries" :key="index">
+            <Card :info="movie"/>
           </li>
       </ol>
   </section>

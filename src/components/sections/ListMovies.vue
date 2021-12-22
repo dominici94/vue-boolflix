@@ -1,5 +1,6 @@
 <template>
   <section class="movie-list">
+      <h2>FILM</h2>
       <ol>
             <li v-for="(movie,index) in dataShared.searchedMovies" :key="index">
                 <Card :info="movie"/>

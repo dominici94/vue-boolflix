@@ -5,6 +5,6 @@ export default Vue.observable({
     movie: '',
     // film cercati
     searchedMovies: [],
-    tvSeries: '',
+    // tvSeries: '',
     searchedTvSeries: []
 });
