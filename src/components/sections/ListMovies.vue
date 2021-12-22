@@ -47,7 +47,7 @@ export default {
         flex-wrap: wrap;
 
         li{
-            width: calc(100% / 6 - 20px);
+            width: calc(100% / 4 - 20px);
             margin: 20px 10px;
         }
     }

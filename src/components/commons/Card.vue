@@ -8,8 +8,10 @@
                 <img v-if="flags.includes(info.original_language)" :src="require(`../../assets/img/${info.original_language}.png`)" :alt="info.original_language" height="30">
                 <img v-else src="../../assets/img/world.svg" :alt="info.original_language" height="30">
             </h2>
-            <h2>VOTO: {{info.vote_average}}/10</h2>
-            <h2>voto: {{vote}}/5</h2>
+            <!-- <h2>VOTO: {{info.vote_average}}/10</h2>
+            <h2>voto: {{vote}}/5</h2> -->
+            <h2>stelle: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></h2>
+            <p>overview: {{info.overview}}</p>
         </div>
     </div>
 </template>
@@ -28,23 +30,24 @@ export default {
                 'fr',
                 'de',
                 'es'
-            ],
+            ]
         }
     },
     props: {
         info: Object
     },
-    methods:{
-        getStar(vote){
-            for(let i = 0; i < 5; i++){
-                if(i < vote){
-                    this.star += `<i class="fas fa-star"></i>`;
-                }else{
-                    this.star += `<i class="far fa-star"></i>`;
-                }
-            }
-        }
-    },
+    // methods:{
+    //     getStar(vote){
+    //         for(let i = 0; i < 5; i++){
+    //             if(i < vote){
+    //                 this.star += '<i class="fas fa-star"></i>';
+    //             }else{
+    //                 this.star += '<i class="far fa-star"></i>';
+    //             }
+    //         }
+    //         return this.star;
+    //     }
+    // },
     computed: {
         vote(){
             return Math.ceil(this.info.vote_average / 2);
@@ -69,10 +72,12 @@ export default {
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 400px;
             padding: 20px 10px;
             background-color: rgba($color: #000000, $alpha: 0.7);
             color: white;
+            overflow: auto;
+            border: 1px solid red;
             img{
                 height: 50%;
                 width: 50%;

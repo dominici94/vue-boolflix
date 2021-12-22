@@ -13,15 +13,11 @@
 </template>
 
 <script>
-// import Searchbar from '../commons/Searchbar.vue';
 import axios from 'axios';
 import dataShared from '../../share/dataShared';
 
 export default {
   name: 'Header',
-  components: {
-      // Searchbar
-  },
   data(){
       return{
         dataShared,
@@ -56,6 +52,7 @@ export default {
       .catch((error) => {
         console.log(error);
       });
+      dataShared.getStar(2);
     }
   }
 }
