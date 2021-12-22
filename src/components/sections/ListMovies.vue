@@ -2,20 +2,20 @@
   <section class="movie-list">
       <ol>
             <li v-for="(movie,index) in dataShared.searchedMovies" :key="index">
-                <MovieCard :info="movie"/>
+                <Card :info="movie"/>
             </li>
       </ol>
   </section>
 </template>
 
 <script>
-import MovieCard from '../commons/MovieCard.vue';
+import Card from '../commons/Card.vue';
 import dataShared from '../../share/dataShared';
 
 export default {
     name: 'ListMovies',
     components: {
-        MovieCard
+        Card
     },
     data(){
         return{
