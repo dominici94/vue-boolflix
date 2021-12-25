@@ -4,7 +4,6 @@ export default Vue.observable({
     movie: '',
     searchedMovies: [],
     searchedTvSeries: [],
-    // star: '',
     getStar(vote){
         let star = '';
         for(let i = 0; i < 5; i++){
@@ -14,7 +13,6 @@ export default Vue.observable({
                 star += '<i class="far fa-star"></i>';
             }
         }
-        // console.log(star);
         return star;
     }
 });

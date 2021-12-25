@@ -1,6 +1,7 @@
 <template>
     <div class="card">
-        <img :src="'https://image.tmdb.org/t/p/w342'+ info.poster_path" :alt="info.title ? info.title : info.name">
+        <img v-if="info.poster_path" :src="'https://image.tmdb.org/t/p/w342'+ info.poster_path" :alt="info.title ? info.title : info.name">
+        <img v-else src="../../assets/img/film1.jpg" alt="image not in database">
         <div id="inhover">
             <h2>TITOLO: {{info.title ? info.title : info.name}}</h2>
             <h2>TITOLO ORIGINALE: {{info.original_title ? info.original_title : info.original_name}}</h2>
@@ -48,10 +49,12 @@ export default {
 
     .card{
         position: relative;
+        height: 400px;
 
         img{
         width: 100%;
         height: 400px;
+        object-fit: cover;
         }
 
         #inhover{
