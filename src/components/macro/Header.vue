@@ -1,7 +1,7 @@
 <template>
   <header>
 
-      <img src="../../assets/img/boolflix.png" alt="logo boolflix da inserire">
+      <img src="../../assets/img/boolflix.png" alt="logo boolflix">
   
       <div class="searchbar">
         <form @submit.prevent="ricerca">
@@ -52,7 +52,6 @@ export default {
       .catch((error) => {
         console.log(error);
       });
-      dataShared.getStar(2);
     }
   }
 }

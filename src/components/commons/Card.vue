@@ -5,12 +5,12 @@
             <h2>TITOLO: {{info.title ? info.title : info.name}}</h2>
             <h2>TITOLO ORIGINALE: {{info.original_title ? info.original_title : info.original_name}}</h2>
             <h2>LINGUA: 
-                <img v-if="flags.includes(info.original_language)" :src="require(`../../assets/img/${info.original_language}.png`)" :alt="info.original_language" height="30">
-                <img v-else src="../../assets/img/world.svg" :alt="info.original_language" height="30">
+                <img v-if="flags.includes(info.original_language)" :src="require(`../../assets/img/${info.original_language}.png`)" :alt="info.original_language">
+                <img v-else src="../../assets/img/world.svg" :alt="info.original_language">
             </h2>
-            <!-- <h2>VOTO: {{info.vote_average}}/10</h2>
-            <h2>voto: {{vote}}/5</h2> -->
-            <h2>stelle: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></h2>
+            <h2>VOTO: {{info.vote_average}}/10</h2>
+            <h2>voto: {{vote}}/5</h2>
+            <h2>stelle dinamiche <span v-html=dataShared.getStar(vote)></span></h2>
             <p>overview: {{info.overview}}</p>
         </div>
     </div>
@@ -36,18 +36,6 @@ export default {
     props: {
         info: Object
     },
-    // methods:{
-    //     getStar(vote){
-    //         for(let i = 0; i < 5; i++){
-    //             if(i < vote){
-    //                 this.star += '<i class="fas fa-star"></i>';
-    //             }else{
-    //                 this.star += '<i class="far fa-star"></i>';
-    //             }
-    //         }
-    //         return this.star;
-    //     }
-    // },
     computed: {
         vote(){
             return Math.ceil(this.info.vote_average / 2);
