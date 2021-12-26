@@ -3,16 +3,17 @@
         <img v-if="info.poster_path" :src="'https://image.tmdb.org/t/p/w342'+ info.poster_path" :alt="info.title ? info.title : info.name">
         <img v-else src="../../assets/img/film1.jpg" alt="image not in database">
         <div id="inhover">
-            <h2>TITOLO: {{info.title ? info.title : info.name}}</h2>
-            <h2>TITOLO ORIGINALE: {{info.original_title ? info.original_title : info.original_name}}</h2>
-            <h2>LINGUA: 
+            <h2>Titolo: {{info.title ? info.title : info.name}}</h2>
+            <h2>Titolo originale: {{info.original_title ? info.original_title : info.original_name}}</h2>
+            <h2 id="lang">Lingua: 
                 <img v-if="flags.includes(info.original_language)" :src="require(`../../assets/img/${info.original_language}.png`)" :alt="info.original_language">
                 <img v-else src="../../assets/img/world.svg" :alt="info.original_language">
             </h2>
-            <h2>VOTO: {{info.vote_average}}/10</h2>
-            <h2>voto: {{vote}}/5</h2>
-            <h2>stelle dinamiche <span v-html=dataShared.getStar(vote)></span></h2>
-            <p>overview: {{info.overview}}</p>
+            <!-- <h2>VOTO: {{info.vote_average}}/10</h2>
+            <h2>voto: {{vote}}/5</h2> -->
+            <h2>Voto: <span v-html=dataShared.getStar(vote)></span></h2>
+            <p v-if="info.overview">overview: {{info.overview}}</p>
+            <span v-else>No overview</span>
         </div>
     </div>
 </template>
@@ -66,12 +67,19 @@ export default {
             height: 400px;
             padding: 20px 10px;
             background-color: rgba($color: #000000, $alpha: 0.7);
-            color: white;
+            color: orange;
             overflow: auto;
             border: 1px solid red;
+            transition: 1s;
+
+            #lang{
+                display: flex;
+                align-items: center;
+            }
+
             img{
-                height: 50%;
-                width: 50%;
+                height: 2em;
+                width: 3em;
             }
             
         }
@@ -79,7 +87,6 @@ export default {
     
     .card:hover #inhover{
         display: block;
-        
     }
     
 

@@ -1,7 +1,7 @@
 <template>
   <section class="movie-list">
       <div class="container">
-        <h2>Film</h2>
+        <h2 v-if="dataShared.searchedMovies">Film</h2>
         <ul>
             <li v-for="(movie, index) in dataShared.searchedMovies" :key="index">
                 <Card :info="movie"/>

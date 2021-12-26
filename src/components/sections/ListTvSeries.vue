@@ -1,7 +1,7 @@
 <template>
   <section class="tv-series-list">
       <div class="container">
-        <h2>SERIE TV</h2>
+        <h2 v-if="dataShared.searchedTvSeries">SERIE TV</h2>
         <ul>
             <li v-for="(movie, index) in dataShared.searchedTvSeries" :key="index">
                 <Card :info="movie"/>

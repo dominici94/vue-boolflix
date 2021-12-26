@@ -2,8 +2,8 @@ import Vue from 'vue';
 
 export default Vue.observable({
     movie: '',
-    searchedMovies: [],
-    searchedTvSeries: [],
+    searchedMovies: null,
+    searchedTvSeries: null,
     getStar(vote){
         let star = '';
         for(let i = 0; i < 5; i++){
