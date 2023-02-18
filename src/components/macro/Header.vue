@@ -159,13 +159,17 @@ export default {
       background-color: $color-primary;
       color: white;
       border: none;
-      margin-right: 3rem;
-      // outline: $color-primary-dark;
-      // display: inline-block;
+      margin-right: 1.5rem;
       padding: 0.5rem 2rem;
-      border-radius: 20px;
+      border-radius: 5px;
+      transition: all 0.3s;
+
       &::placeholder {
         color: white;
+      }
+      &:focus {
+        background-color: $color-primary-dark;
+        transform: scale(1.05);
       }
     }
 
@@ -178,6 +182,7 @@ export default {
 
       &:hover {
         background-color: $color-primary-dark;
+        transform: scale(1.05);
       }
 
       & > * {
