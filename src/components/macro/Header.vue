@@ -178,11 +178,11 @@ export default {
       padding: 0.6rem 0.8rem;
       border-radius: 7px;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: all 0.2s;
 
       &:hover {
         background-color: $color-primary-dark;
-        transform: scale(1.05);
+        transform: scale(1.03);
       }
 
       & > * {

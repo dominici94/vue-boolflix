@@ -26,6 +26,8 @@ export default Vue.observable({
         },
       })
       .then((response) => {
+        // console.log(response.data);
+        if (response.data.results.length === 0) return;
         this.searchedMovies = response.data.results;
       })
       .catch((error) => {
@@ -41,6 +43,7 @@ export default Vue.observable({
         },
       })
       .then((response) => {
+        if (response.data.results.length === 0) return;
         this.searchedTvSeries = response.data.results;
       })
       .catch((error) => {
