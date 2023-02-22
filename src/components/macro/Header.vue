@@ -144,7 +144,7 @@ export default {
   .active {
     color: $color-primary;
     // border-bottom: 1px solid $color-primary-dark;
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.1);
   }
 
   &__logo {

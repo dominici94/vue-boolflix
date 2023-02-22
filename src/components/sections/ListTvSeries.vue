@@ -29,15 +29,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// section{
-//     background-color: rgb(236, 67, 15);
-// }
+@import "../../assets/style/partials/variables.scss";
 
 h2 {
+  font-size: 5rem;
   text-transform: uppercase;
-  font-size: 50px;
-  text-align: center;
-  color: white;
+  background: linear-gradient(
+    to bottom left,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  letter-spacing: 0.5rem;
+  display: table;
+  margin: 3rem auto;
+  padding: 0.5rem 5rem;
+  border-top-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  transform: skewX(-15deg);
+  box-shadow: 0 0.8rem 1rem rgba($color-black, 0.75);
+  text-shadow: 2px 2px white;
+  cursor: pointer;
+
+  color: $color-black;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.05) skewX(-15deg);
+    box-shadow: 0 1.3rem 1rem rgba($color-black, 0.75);
+  }
 }
 ul {
   list-style: none;

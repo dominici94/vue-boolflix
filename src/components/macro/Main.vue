@@ -1,7 +1,7 @@
 <template>
   <main class="main">
-    <ListMovies />
-    <ListTvSeries />
+    <ListMovies class="movies" />
+    <ListTvSeries class="series" />
   </main>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     };
   },
   mounted() {
-    dataShared.ricerca("batman");
+    dataShared.ricerca("harry potter");
   },
 };
 </script>
@@ -31,8 +31,13 @@ export default {
 .main {
   padding-top: 100px;
   min-height: calc(100vh - 100px);
-  background-image: url(https://static.standard.co.uk/2022/11/16/10/netflix-s.jpg?width=1200);
+  background-image: url(https://cinemaserietv.it/wp-content/uploads/2022/08/netflix-ultime-uscite.jpg);
   background-size: 100%;
-  /* background-repeat: no-repeat; */
+  background-repeat: repeat-y;
 }
+
+/* .movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+} */
 </style>
