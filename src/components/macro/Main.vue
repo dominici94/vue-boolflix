@@ -84,6 +84,10 @@ export default {
     grid-column-gap: 4.5rem;
     justify-content: center;
     margin-top: 6rem;
+
+    & > * {
+      list-style: none;
+    }
   }
 
   .list-small {
