@@ -82,6 +82,7 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-row-gap: 6rem;
     grid-column-gap: 4.5rem;
+    justify-content: center;
     margin-top: 6rem;
   }
 

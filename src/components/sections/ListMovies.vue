@@ -4,7 +4,7 @@
       <h2 v-if="dataShared.searchedMovies" class="heading-primary">Movies</h2>
       <ul
         class="list-cards"
-        :class="dataShared.searchedTvSeries.length < 5 ? 'list-small' : ''"
+        :class="dataShared.searchedMovies.length < 5 ? 'list-small' : ''"
       >
         <li v-for="(movie, index) in dataShared.searchedMovies" :key="index">
           <Card :info="movie" />

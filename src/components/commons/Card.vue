@@ -1,6 +1,7 @@
 <template>
   <div class="card">
     <img
+      class="card__image"
       v-if="info.poster_path"
       :src="'https://image.tmdb.org/t/p/w342' + info.poster_path"
       :alt="info.title ? info.title : info.name"
@@ -60,6 +61,16 @@ export default {
 .card {
   position: relative;
   height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  &__image {
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 
   img {
     width: 100%;
@@ -68,7 +79,8 @@ export default {
   }
 
   #inhover {
-    display: none;
+    // display: none;
+    opacity: 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -78,8 +90,8 @@ export default {
     background-color: rgba($color: #000000, $alpha: 0.7);
     color: orange;
     overflow: auto;
-    border: 1px solid red;
-    transition: 1s;
+    // border: 1px solid red;
+    transition: all 0.6s;
 
     #lang {
       display: flex;
@@ -94,6 +106,6 @@ export default {
 }
 
 .card:hover #inhover {
-  display: block;
+  opacity: 1;
 }
 </style>
