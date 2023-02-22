@@ -111,8 +111,9 @@ export default {
   background-image: linear-gradient(
     to bottom,
     rgba($color-black, 1),
-    rgba($color-black, 0.8)
+    rgba($color-black, 0.7)
   );
+  box-shadow: -0.5rem 0.7rem 1rem rgba($color-black, 0.7);
 
   &__left,
   &__right {
@@ -192,13 +193,5 @@ export default {
       }
     }
   }
-
-  // .searchbar button,
-  // input {
-  //   margin-right: 40px;
-  //   padding: 5px 20px;
-  //   border-radius: 20px;
-  //   background-color: $color-primary-dark;
-  // }
 }
 </style>
