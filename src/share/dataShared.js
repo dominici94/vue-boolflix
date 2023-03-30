@@ -3,8 +3,8 @@ import axios from "axios";
 
 export default Vue.observable({
   movie: "",
-  searchedMovies: null,
-  searchedTvSeries: null,
+  searchedMovies: {},
+  searchedTvSeries: {},
   getStar(vote) {
     let star = "";
     for (let i = 0; i < 5; i++) {
